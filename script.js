@@ -2,7 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const searchInput = document.getElementById('menuSearch');
     const menuCards = document.querySelectorAll('.menu-card');
-    if(!searchInput) return;
+
+        if(!searchInput) return;
+
     const resultsDiv = document.createElement('div');
     resultsDiv.id = 'searchResults';
     resultsDiv.className = 'search-results';
@@ -43,8 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     item.addEventListener('click', () => {
                         card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        card.style.outline = "4px solid white"; // Vurgula
-                        setTimeout(() => card.style.outline = "none", 2000);
+                        card.style.outline = "2px solid black";
+                        setTimeout(() => card.style.outline = "none", 2500);
                         resultsDiv.style.display = 'none';
                         searchInput.value = '';
                     });
