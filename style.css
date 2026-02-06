@@ -172,6 +172,7 @@ ul {
 .şube:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    color: #e4aa22;
 }
 
 #şube {
@@ -187,6 +188,10 @@ ul {
     text-align: center;
     margin: 0 auto 40px auto;
     width: fit-content;
+}
+
+.menu-card:hover h3 {
+    color: #e4a81c;
 }
 
 .about-us {
@@ -208,19 +213,26 @@ ul {
 .about-us .neden-biz {
     font-size: 28px;
     margin-bottom: 20px;
-    color: #fd9801;
+    color: #efeded;
     transition: color 0.3s ease;
+    font-style: oblique;
 }
 
 .about-us:hover .neden-biz {
-    color: #ff8c00;
+    color: #ffffff;
+    transition: color 0.3s ease;
 }
 
 .about-us .aciklama {
     font-size: 16px;
     line-height: 1.6;
-    color: #333;
+    color: #333333d3;
     font-style: italic;
+}
+
+.about-us:hover .aciklama {
+    color: #2c2c2c;
+    transition: color 0.3s ease;
 }
 
 .about-us::after {
@@ -234,6 +246,7 @@ ul {
 .about-us:hover::after {
     transform: rotate(10deg);
 }
+
 
 .menu-grid {
     display: grid;
@@ -278,16 +291,16 @@ ul {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
-.footer-container {
+.insta-facebook {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    gap: 20px;
 }
 
 #insta {
     font-size: 45px;
-    color: white;
+    color: rgb(245, 33, 206);
 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -297,18 +310,42 @@ ul {
 }
 
 #insta:hover {
-    color: rgb(224, 221, 221);
+    color: rgba(245, 33, 206, 0.785);
+}
+
+#fb {
+    font-size: 40px;
+    color: blue;
+    margin-left: 20px;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#fb:hover {
+    transform: scale(1.05) translateY(-2px);
+}
+
+#fb:hover {
+    color: rgba(0, 0, 255, 0.778);
 }
 
 .takip {
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
 }
 
 .footer-copy {
     margin-top: 100px;
     text-align: center;
     font-size: 15px;
-    color: #e9e8e898;
+    color: #0000003d;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .search-wrap {
