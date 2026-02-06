@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const searchInput = document.getElementById('menuSearch');
     const menuCards = document.querySelectorAll('.menu-card');
-
+    if(!searchInput) return;
     const resultsDiv = document.createElement('div');
     resultsDiv.id = 'searchResults';
     resultsDiv.className = 'search-results';
