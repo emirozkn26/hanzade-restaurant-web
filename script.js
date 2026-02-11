@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchInput = document.getElementById('menuSearch');
     const menuCards = document.querySelectorAll('.menu-card');
 
-        if(!searchInput) return;
+    if (!searchInput) return;
 
     const resultsDiv = document.createElement('div');
     resultsDiv.id = 'searchResults';
@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (targetElement) {
                 targetElement.scrollIntoView({ behavior: 'smooth' });
                 resultsDiv.style.display = 'none';
+
             }
         });
     });
@@ -72,6 +73,31 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener('click', (e) => {
         if (!searchInput.contains(e.target) && !resultsDiv.contains(e.target)) {
             resultsDiv.style.display = 'none';
+        }
+    });
+});
+
+window.addEventListener('scroll', () => {
+    let current = "";
+    const sections = document.querySelectorAll('section[id], main[id], footer[id]');
+    const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+    const isAtBottom = (window.innerHeight + scrollPosition) >= document.documentElement.scrollHeight - 50;
+
+    if (isAtBottom) {
+        current = "contact";
+    } else {
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            if (scrollPosition >= sectionTop - 180) {
+                current = section.getAttribute("id");
+            }
+        });
+    }
+
+    document.querySelectorAll(".menu li a").forEach((a) => {
+        a.classList.remove("active-link");
+        if (a.getAttribute("data-target") === current) {
+            a.classList.add("active-link");
         }
     });
 });
