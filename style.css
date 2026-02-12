@@ -199,7 +199,6 @@ ul {
     padding: 15px 25px;
     border-radius: 20px;
     border: 2px solid #E6B43F;
-
     display: block;
     text-align: center;
     margin: 0 auto 40px auto;
@@ -281,7 +280,7 @@ ul {
     padding: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-    border: 1px solid #ff9100;
+    border: 1px solid #e8ad24d3;
 }
 
 .menu-card img {
@@ -305,6 +304,24 @@ ul {
 .menu-card:hover {
     transform: scale(1.05) translateY(-5px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+#menuSearch {
+    border-radius: 12px;
+    border: none;
+    padding: 3px;
+    background-color: rgba(0, 0, 0, 0.695);
+    color: #E6B43F;
+    
+}
+
+#menuSearch::placeholder {
+    color: #e6b43fa7;
+    font-size: 15px;
+}
+
+#menuSearch:focus {
+    outline: none;
 }
 
 .insta-facebook {
@@ -432,7 +449,6 @@ ul {
 .menu li a.active-link {
     color: rgb(255, 255, 255) !important;
     font-weight: 700;
-    border-bottom: 1px solid #000;
 }
 
 .phone {
