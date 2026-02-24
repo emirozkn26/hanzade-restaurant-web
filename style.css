@@ -215,7 +215,7 @@ ul {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.35);
+    background: rgba(0, 0, 0, 0.15);
 }
 
 .hero * {
@@ -693,6 +693,27 @@ ul {
 
 footer {
     margin-top: 150px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    color: white;
+    transition: 0.15s ease;
+}
+
+a:hover {
+    color: rgb(212, 212, 212);
+    
+}
+
+.yorum-aciklama {
+
+    margin-top: 90px;
+    text-align: center;
+    font-size: 14px;
+    color: whitesmoke;
+    
 }
 
 
