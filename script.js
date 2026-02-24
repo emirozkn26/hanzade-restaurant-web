@@ -46,8 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     item.addEventListener('click', () => {
                         card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        card.style.outline = "2px solid black";
-                        setTimeout(() => card.style.outline = "none", 2500);
+                        card.classList.add("highlighted");
+                        setTimeout(() => card.classList.remove("highlighted"), 2500);
                         resultsDiv.style.display = 'none';
                         searchInput.value = '';
                     });
@@ -279,3 +279,49 @@ function revealYorumlar() {
 }
 
 window.addEventListener("scroll", revealYorumlar);
+
+const hamburger = document.getElementById("hamburger");
+const menu = document.querySelector(".menu");
+
+if (hamburger) {
+    hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        menu.classList.toggle("active");
+    });
+}
+
+let lastScrollY = window.scrollY;
+const navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll", () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        navbar.classList.add("hide");
+    } else {
+        navbar.classList.remove("hide");
+    }
+
+    lastScrollY = currentScrollY;
+}); 
+
+const cities = [
+    "Ankara'nın En Lezzetli Künefesi",
+    "İstanbul'un En Lezzetli Künefesi",
+    "Eskişehir'in En Lezzetli Künefesi",
+    "Türkiye'nin En Lezzetli Künefesi"
+];
+
+let cityIndex = 0;
+const cityElement = document.getElementById("city");
+
+setInterval(() => {
+    cityElement.style.opacity = 0;
+
+    setTimeout(() => {
+        cityIndex = (cityIndex + 1) % cities.length;
+        cityElement.textContent = cities[cityIndex];
+        cityElement.style.opacity = 1;
+    }, 300);
+
+}, 2500);
