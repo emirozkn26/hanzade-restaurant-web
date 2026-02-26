@@ -712,8 +712,19 @@ a:hover {
     margin-top: 90px;
     text-align: center;
     font-size: 14px;
-    color: whitesmoke;
+    color: black;
     
+}
+
+.yorum-aciklama a {
+    color: black;
+    font-style: italic;
+
+    transition: color 0.23s ease;
+}
+
+.yorum-aciklama a:hover {
+    color: rgba(0, 0, 0, 0.596);
 }
 
 
