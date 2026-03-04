@@ -708,23 +708,32 @@ a:hover {
 }
 
 .yorum-aciklama {
-
+    background-color: #E6B43F;
+    max-width: fit-content;
     margin-top: 90px;
     text-align: center;
-    font-size: 14px;
-    color: black;
+    font-size: 17px;
+    color: #fffffff1;
+    
+
+    padding: 10px;
+    border-radius: 25px;
+
+    
+    margin: 90px auto 0 auto;
     
 }
 
 .yorum-aciklama a {
-    color: black;
+    color: #fffffff1;
     font-style: italic;
-
     transition: color 0.23s ease;
+    
 }
 
 .yorum-aciklama a:hover {
-    color: rgba(0, 0, 0, 0.596);
+    color: #ffffffbd;
+    
 }
 
 
