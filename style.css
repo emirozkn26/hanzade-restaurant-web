@@ -708,7 +708,7 @@ a:hover {
 }
 
 .yorum-aciklama {
-    background-color: #E6B43F;
+    background: linear-gradient(135deg, #E6B43F, #c79a2b);
     max-width: fit-content;
     margin-top: 90px;
     text-align: center;
