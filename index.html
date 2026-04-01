@@ -92,7 +92,7 @@ balgat en iyi künefe
             <ul class="menu">
                 <li><a href="#" data-target="main">Ana Sayfa</a></li>
                 <li><a href="#" data-target="about-us">Hakkımızda</a></li>
-                <li><a href="#" data-target="info-bar">Şubeler</a></li>
+                <li><a href="#" data-target="info-bar">Şubeler</a> </li>
                 <li><a href="#" data-target="menu-page">Menü</a></li>
                 <li><a href="#" data-target="contact">İletişim</a></li>
                 <div class="search-container">
@@ -357,7 +357,9 @@ balgat en iyi künefe
     <section id="yorumlar">
         <h2 class="yorum-baslik">Müşterilerimizin Yorumları</h2>
         <div class="yorum-grid" id="yorumGrid"></div>
-        <p class="yorum-aciklama">Tüm Yorumlar  <a href="https://www.google.com/maps/place/Hanzade+K%C3%BCnefe/@39.9041805,32.8136064,17z/data=!4m8!3m7!1s0x14d34f51af4120e1:0xbfc9f5e8422aa2b7!8m2!3d39.9041805!4d32.8161813!9m1!1b1!16s%2Fg%2F11gdkp0cx1?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D" target="_blank">Google Haritalar</a> kullanıcı yorumlarından alınmıştır.</p>
+        <p class="yorum-aciklama">Tüm Yorumlar <a
+                href="https://www.google.com/maps/place/Hanzade+K%C3%BCnefe/@39.9041805,32.8136064,17z/data=!4m8!3m7!1s0x14d34f51af4120e1:0xbfc9f5e8422aa2b7!8m2!3d39.9041805!4d32.8161813!9m1!1b1!16s%2Fg%2F11gdkp0cx1?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank">Google Haritalar</a> kullanıcı yorumlarından alınmıştır.</p>
     </section>
 
 
@@ -380,6 +382,24 @@ balgat en iyi künefe
                 <p> <b>Eskişehir</b> <br><i class="fas fa-phone"></i><a class="phone" data-tel="+905058338726"> 0505 833
                         87
                         26</a></p>
+
+            </div>
+            <div class="map-section">
+
+                <div class="map-buttons">
+                    <button onclick="changeMap('balgat')">Balgat</button>
+                    <button onclick="changeMap('sincan')">Sincan</button>
+                    <button onclick="changeMap('altindag')">Altındağ</button>
+                    <button onclick="changeMap('istanbul')">İstanbul</button>
+                    <button onclick="changeMap('eskisehir')">Eskişehir</button>
+                </div>
+
+                <div class="map-container">
+                    <iframe id="mapFrame" src="https://www.google.com/maps?q=Hanzade+Künefe+Balgat&output=embed"
+                        width="100%" height="400" style="border:0;" loading="lazy">
+                    </iframe>
+                </div>
+
             </div>
             <br>
             <br>
