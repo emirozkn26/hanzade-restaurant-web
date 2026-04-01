@@ -1,105 +1,105 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const searchInput = document.getElementById('menuSearch');
-    const menuCards = document.querySelectorAll('.menu-card');
+  const searchInput = document.getElementById('menuSearch');
+  const menuCards = document.querySelectorAll('.menu-card');
 
-    if (!searchInput) return;
+  if (!searchInput) return;
 
-    const resultsDiv = document.createElement('div');
-    resultsDiv.id = 'searchResults';
-    resultsDiv.className = 'search-results';
-    searchInput.parentNode.appendChild(resultsDiv);
+  const resultsDiv = document.createElement('div');
+  resultsDiv.id = 'searchResults';
+  resultsDiv.className = 'search-results';
+  searchInput.parentNode.appendChild(resultsDiv);
 
-    const scrollButtons = document.querySelectorAll('[data-target]');
-    scrollButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = btn.getAttribute('data-target');
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-                resultsDiv.style.display = 'none';
+  const scrollButtons = document.querySelectorAll('[data-target]');
+  scrollButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = btn.getAttribute('data-target');
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+        resultsDiv.style.display = 'none';
 
-            }
-        });
+      }
     });
+  });
 
-    searchInput.addEventListener('input', () => {
-        const query = searchInput.value.toLowerCase();
-        resultsDiv.innerHTML = '';
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase();
+    resultsDiv.innerHTML = '';
 
-        if (query.length > 0) {
-            let foundCount = 0;
-            menuCards.forEach(card => {
-                const title = card.querySelector('h3').textContent;
-                const imgSrc = card.querySelector('img').src;
+    if (query.length > 0) {
+      let foundCount = 0;
+      menuCards.forEach(card => {
+        const title = card.querySelector('h3').textContent;
+        const imgSrc = card.querySelector('img').src;
 
-                if (title.toLowerCase().includes(query)) {
-                    foundCount++;
+        if (title.toLowerCase().includes(query)) {
+          foundCount++;
 
-                    const item = document.createElement('div');
-                    item.className = 'result-item';
-                    item.innerHTML = `
+          const item = document.createElement('div');
+          item.className = 'result-item';
+          item.innerHTML = `
                         <img src="${imgSrc}">
                         <span class="title">${title}</span>
                     `;
 
-                    item.addEventListener('click', () => {
-                        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        card.classList.add("highlighted");
-                        setTimeout(() => card.classList.remove("highlighted"), 2500);
-                        resultsDiv.style.display = 'none';
-                        searchInput.value = '';
-                    });
-                    resultsDiv.appendChild(item);
-                }
-            });
-            resultsDiv.style.display = foundCount > 0 ? 'block' : 'none';
-        } else {
+          item.addEventListener('click', () => {
+            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            card.classList.add("highlighted");
+            setTimeout(() => card.classList.remove("highlighted"), 2500);
             resultsDiv.style.display = 'none';
+            searchInput.value = '';
+          });
+          resultsDiv.appendChild(item);
         }
+      });
+      resultsDiv.style.display = foundCount > 0 ? 'block' : 'none';
+    } else {
+      resultsDiv.style.display = 'none';
+    }
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('section-visible');
+      }
     });
+  }, { threshold: 0.15 });
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('section-visible');
-            }
-        });
-    }, { threshold: 0.15 });
+  document.querySelectorAll('main, section, footer').forEach(el => observer.observe(el));
 
-    document.querySelectorAll('main, section, footer').forEach(el => observer.observe(el));
-
-    document.addEventListener('click', (e) => {
-        if (!searchInput.contains(e.target) && !resultsDiv.contains(e.target)) {
-            resultsDiv.style.display = 'none';
-        }
-    });
+  document.addEventListener('click', (e) => {
+    if (!searchInput.contains(e.target) && !resultsDiv.contains(e.target)) {
+      resultsDiv.style.display = 'none';
+    }
+  });
 });
 
 window.addEventListener('scroll', () => {
-    let current = "";
-    const sections = document.querySelectorAll('section[id], main[id], footer[id]');
-    const scrollPosition = window.scrollY || document.documentElement.scrollTop;
-    const isAtBottom = (window.innerHeight + scrollPosition) >= document.documentElement.scrollHeight - 50;
+  let current = "";
+  const sections = document.querySelectorAll('section[id], main[id], footer[id]');
+  const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+  const isAtBottom = (window.innerHeight + scrollPosition) >= document.documentElement.scrollHeight - 50;
 
-    if (isAtBottom) {
-        current = "contact";
-    } else {
-        sections.forEach((section) => {
-            const sectionTop = section.offsetTop;
-            if (scrollPosition >= sectionTop - 180) {
-                current = section.getAttribute("id");
-            }
-        });
-    }
-
-    document.querySelectorAll(".menu li a").forEach((a) => {
-        a.classList.remove("active-link");
-        if (a.getAttribute("data-target") === current) {
-            a.classList.add("active-link");
-        }
+  if (isAtBottom) {
+    current = "contact";
+  } else {
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      if (scrollPosition >= sectionTop - 180) {
+        current = section.getAttribute("id");
+      }
     });
+  }
+
+  document.querySelectorAll(".menu li a").forEach((a) => {
+    a.classList.remove("active-link");
+    if (a.getAttribute("data-target") === current) {
+      a.classList.add("active-link");
+    }
+  });
 });
 
 const comments = [
@@ -269,13 +269,13 @@ scrollBtn.addEventListener("click", () => {
 const yorumSection = document.getElementById("yorumlar");
 
 function revealYorumlar() {
-    const windowHeight = window.innerHeight;
-    const elementTop = yorumSection.getBoundingClientRect().top;
-    const revealPoint = 120;
+  const windowHeight = window.innerHeight;
+  const elementTop = yorumSection.getBoundingClientRect().top;
+  const revealPoint = 120;
 
-    if (elementTop < windowHeight - revealPoint) {
-        yorumSection.classList.add("active");
-    }
+  if (elementTop < windowHeight - revealPoint) {
+    yorumSection.classList.add("active");
+  }
 }
 
 window.addEventListener("scroll", revealYorumlar);
@@ -284,44 +284,64 @@ const hamburger = document.getElementById("hamburger");
 const menu = document.querySelector(".menu");
 
 if (hamburger) {
-    hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("active");
-        menu.classList.toggle("active");
-    });
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    menu.classList.toggle("active");
+  });
 }
 
 let lastScrollY = window.scrollY;
 const navbar = document.querySelector(".navbar");
 
 window.addEventListener("scroll", () => {
-    const currentScrollY = window.scrollY;
+  const currentScrollY = window.scrollY;
 
-    if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        navbar.classList.add("hide");
-    } else {
-        navbar.classList.remove("hide");
-    }
+  if (currentScrollY > lastScrollY && currentScrollY > 100) {
+    navbar.classList.add("hide");
+  } else {
+    navbar.classList.remove("hide");
+  }
 
-    lastScrollY = currentScrollY;
-}); 
+  lastScrollY = currentScrollY;
+});
 
 const cities = [
-    "Ankara'nın En Lezzetli Künefesi",
-    "İstanbul'un En Lezzetli Künefesi",
-    "Eskişehir'in En Lezzetli Künefesi",
-    "Türkiye'nin En Lezzetli Künefesi"
+  "Ankara'nın En Lezzetli Künefesi",
+  "İstanbul'un En Lezzetli Künefesi",
+  "Eskişehir'in En Lezzetli Künefesi",
+  "Türkiye'nin En Lezzetli Künefesi"
 ];
 
 let cityIndex = 0;
 const cityElement = document.getElementById("city");
 
 setInterval(() => {
-    cityElement.style.opacity = 0;
+  cityElement.style.opacity = 0;
 
-    setTimeout(() => {
-        cityIndex = (cityIndex + 1) % cities.length;
-        cityElement.textContent = cities[cityIndex];
-        cityElement.style.opacity = 1;
-    }, 300);
+  setTimeout(() => {
+    cityIndex = (cityIndex + 1) % cities.length;
+    cityElement.textContent = cities[cityIndex];
+    cityElement.style.opacity = 1;
+  }, 300);
 
 }, 2500);
+
+window.changeMap = function(branch){
+
+const maps = {
+
+balgat:"https://www.google.com/maps?q=Hanzade+Künefe+Balgat&output=embed",
+
+sincan:"https://www.google.com/maps?q=Hanzade+Künefe+Sincan&output=embed",
+
+altindag:"https://www.google.com/maps?q=Hanzade+Künefe+Altındağ&output=embed",
+
+istanbul:"https://www.google.com/maps?q=Hanzade+Künefe+Sultanbeyli&output=embed",
+
+eskisehir:"https://www.google.com/maps?q=Hanzade+Künefe+Eskişehir&output=embed"
+
+};
+
+document.getElementById("mapFrame").src = maps[branch];
+
+}
