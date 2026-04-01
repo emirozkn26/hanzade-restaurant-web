@@ -375,7 +375,7 @@ ul {
 
 .menu-card.highlighted {
     transform: scale(1.06) translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     z-index: 5;
 }
 
@@ -521,7 +521,7 @@ ul {
 
 .search-container {
     position: relative;
-    width: 220px; 
+    width: 220px;
     margin-left: auto;
 }
 
@@ -545,6 +545,45 @@ ul {
     object-fit: cover;
     border-radius: 5px;
     margin-right: 12px;
+}
+
+.map-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.map-buttons button {
+    margin-top: 30px;
+    background: #E6B43F;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.map-buttons button:hover {
+    background: #d69f2e;
+    transform: translateY(-2px); 
+    color: rgba(255, 255, 255, 0.684);
+}
+
+.map-container{
+width:90%;
+max-width:800px;
+margin:40px auto;
+border-radius:20px;
+overflow:hidden;
+}
+
+.map-container iframe{
+width:100%;
+height:350px;
 }
 
 .result-item div {
@@ -704,7 +743,7 @@ a {
 
 a:hover {
     color: rgb(212, 212, 212);
-    
+
 }
 
 .yorum-aciklama {
@@ -714,26 +753,26 @@ a:hover {
     text-align: center;
     font-size: 17px;
     color: #fffffff1;
-    
+
 
     padding: 10px;
     border-radius: 25px;
 
-    
+
     margin: 90px auto 0 auto;
-    
+
 }
 
 .yorum-aciklama a {
     color: #fffffff1;
     font-style: italic;
     transition: color 0.23s ease;
-    
+
 }
 
 .yorum-aciklama a:hover {
     color: #ffffffbd;
-    
+
 }
 
 
