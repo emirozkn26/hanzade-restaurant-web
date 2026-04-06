@@ -326,22 +326,63 @@ setInterval(() => {
 
 }, 2500);
 
-window.changeMap = function(branch){
+window.changeMap = function (branch) {
 
-const maps = {
+  const maps = {
 
-balgat:"https://www.google.com/maps?q=Hanzade+Künefe+Balgat&output=embed",
+    balgat: "https://www.google.com/maps?q=Hanzade+Künefe+Balgat&output=embed",
 
-sincan:"https://www.google.com/maps?q=Hanzade+Künefe+Sincan&output=embed",
+    sincan: "https://www.google.com/maps?q=Hanzade+Künefe+Sincan&output=embed",
 
-altindag:"https://www.google.com/maps?q=Hanzade+Künefe+Altındağ&output=embed",
+    altindag: "https://www.google.com/maps?q=Hanzade+Künefe+Altındağ&output=embed",
 
-istanbul:"https://www.google.com/maps?q=Hanzade+Künefe+Sultanbeyli&output=embed",
+    istanbul: "https://www.google.com/maps?q=Hanzade+Künefe+Sultanbeyli&output=embed",
 
-eskisehir:"https://www.google.com/maps?q=Hanzade+Künefe+Eskişehir&output=embed"
+    eskisehir: "https://www.google.com/maps?q=Hanzade+Künefe+Eskişehir&output=embed"
 
-};
+  };
 
-document.getElementById("mapFrame").src = maps[branch];
+  document.getElementById("mapFrame").src = maps[branch];
 
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const videos = Array.from(document.querySelectorAll(".auto-slide"));
+  let currentIndex = 0;
+
+  function shuffle(array) {
+    return array.sort(() => 0.5 - Math.random());
+  }
+
+  let shuffledVideos = shuffle(videos);
+
+  function playVideo(index) {
+    shuffledVideos.forEach((v) => {
+      v.classList.remove("active");
+      v.pause();
+      v.currentTime = 0;
+      v.muted = true;
+    });
+
+    const video = shuffledVideos[index];
+    video.classList.add("active");
+    video.play();
+
+    video.addEventListener("click", function () {
+      video.muted = !video.muted;
+    });
+
+    video.onended = function () {
+      currentIndex++;
+      if (currentIndex >= shuffledVideos.length) {
+        currentIndex = 0;
+        shuffledVideos = shuffle(videos); // tekrar rastgele sırala
+      }
+      playVideo(currentIndex);
+    }
+  }
+
+  playVideo(currentIndex);
+
+});
