@@ -290,6 +290,33 @@ ul {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.video-wrapper{
+  width:90%;
+  max-width:600px;
+  margin:40px auto;
+  border-radius:20px;
+  overflow:hidden;
+  height:400px;
+  background-color: #00000086;
+}
+
+.auto-slide{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:none;      
+  border-radius:10px;
+  cursor:pointer;     
+}
+
+.auto-slide.active{
+  display:block;
+}
+
+.dessert-video-section {
+    margin: 70px;
+}
+
 .about-us:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
